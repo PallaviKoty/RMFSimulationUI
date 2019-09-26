@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 
 GroupBox {
     id: controlBox
-    Layout.topMargin: 50                    //distance between 2 items. Eg: Humans and AGV item
+    Layout.topMargin: 40                    //distance between 2 items. Eg: Humans and AGV item
     Layout.fillWidth: true
     property var fromVal: 0
     property var toVal: 70
@@ -25,14 +25,15 @@ GroupBox {
         color: "lightgray"                  //set this to the background color
         border.color: "#106cc8"
         width: parent.width
-        height: title.font.pixelSize
+        height: title.font.pixelSize + 10
         Text {
             id: title
             text: heading
             anchors.centerIn: parent
-            font.pixelSize: 28
+            font.pixelSize: 18
+            font.family: "SourceSansPro"
+            font.bold: true
             color: "#106cc8"
-
         }
     }
 
@@ -50,6 +51,6 @@ GroupBox {
             to: controlBox.toVal
             value: 0
             stepSize: controlBox.stepSizeVal
-          }
+        }
     }
 }
