@@ -36,15 +36,14 @@ ApplicationWindow {
     RowLayout {
         id: mainLayout
         anchors.top: fileButton.bottom
-        anchors.topMargin: 20
+        anchors.topMargin: 5
         anchors.left: parent.left
         anchors.margins: margin
 
         ColumnLayout {
             id: mainLeftLayout
-            anchors.topMargin: 20
-            anchors.left: parent.left
-            anchors.margins: margin
+            Layout.topMargin: 20
+            Layout.margins: margin
 
             LeftColumn {
                 heading: "Humans"
@@ -152,13 +151,12 @@ ApplicationWindow {
                     }
                 }
                 ColumnLayout {
-                    id:dropdownColumn
+                    id: dropdownColumn
 
                     RowLayout {
                         id: agvNumberLayout
-                        anchors.topMargin: 20
-                        anchors.left: parent.left
-                        anchors.margins: margin
+                        Layout.topMargin: 20
+                        //                        Layout.margins: margin
                         TextArea {
                             text: "AGV Number"
                             font.bold: true
@@ -171,9 +169,8 @@ ApplicationWindow {
 
                     RowLayout {
                         id: agvPositionLayout
-                        anchors.topMargin: 20
-                        anchors.left: parent.left
-                        anchors.margins: margin
+                        Layout.topMargin: 20
+                        //                        Layout.margins: margin
                         TextArea {
                             text: "AGV Position"
                             font.bold: true
@@ -186,25 +183,84 @@ ApplicationWindow {
                 }
             }
         }
-        ColumnLayout
-        {
-//            id: chartMapSection
-//            ChartView {
-//                title: "Line"
-////                anchors.fill: parent
-////                antialiasing: true
+        ColumnLayout {
+            id: rightelement
 
-//                LineSeries {
-//                    name: "LineSeries"
-//                    XYPoint { x: 0; y: 0 }
-//                    XYPoint { x: 1.1; y: 2.1 }
-//                    XYPoint { x: 1.9; y: 3.3 }
-//                    XYPoint { x: 2.1; y: 2.1 }
-//                    XYPoint { x: 2.9; y: 4.9 }
-//                    XYPoint { x: 3.4; y: 3.0 }
-//                    XYPoint { x: 4.1; y: 3.3 }
-//                }
-//            }
+            ChartView {
+                id: hello
+                width: 500
+                height: 400
+                theme: ChartView.ChartThemeBlueIcy
+                antialiasing: true
+
+                LineSeries {
+                    name: "Throughput"
+                    XYPoint {
+                        x: 0
+                        y: 0
+                    }
+                    XYPoint {
+                        x: 1.1
+                        y: 2.1
+                    }
+                    XYPoint {
+                        x: 1.9
+                        y: 3.3
+                    }
+                    XYPoint {
+                        x: 2.1
+                        y: 2.1
+                    }
+                    XYPoint {
+                        x: 2.9
+                        y: 4.9
+                    }
+                    XYPoint {
+                        x: 3.4
+                        y: 3.0
+                    }
+                    XYPoint {
+                        x: 4.1
+                        y: 3.3
+                    }
+                }
+            }
+
+            Image {
+                id: interactiveMap4
+                source: "qrc:mapimage.png"
+            }
+
+            //            RowLayout {
+            //                id: rightAgvNumberLayout
+            //                Layout.topMargin: 20
+            ////                        Layout.margins: margin
+            //                TextArea {
+            //                    text: "AGV Number"
+            //                    font.bold: true
+            //                    color: "#106cc8"
+            //                }
+            //                ComboBox {
+            //                    model: ["1", "2", "3"]
+            //                }
+            //            }
+
+            //            RowLayout {
+            //                id: rightAgvPositionLayout
+            //                Layout.topMargin: 20
+            ////                        Layout.margins: margin
+            //                TextArea {
+            //                    text: "AGV Position"
+            //                    font.bold: true
+            //                    color: "#106cc8"
+            //                }
+            //                ComboBox {
+            //                    model: ["1", "2", "3"]
+            //                }
+            //            }
         }
     }
+//    Flickable {
+//        ScrollBar.vertical: ScrollBar {}
+//    }
 }
