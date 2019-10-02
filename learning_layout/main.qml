@@ -23,12 +23,21 @@ ApplicationWindow {
 
             MenuItem {
                 text: "Load Previous Scenario"
+                objectName: "LoadPreviousScenario"
+                signal loadPreviousScenario()
+                onClicked: loadPreviousScenario()
             }
             MenuItem {
                 text: "Play/Pause"
+                objectName: "PlayPause"
+                signal playPaused()
+                onClicked: playPaused()
             }
             MenuItem {
-                text: "Stop"
+                text: "Exit"
+                objectName: "exit"
+                signal exitSignal()
+                onClicked: exitSignal()
             }
         }
     }
@@ -76,7 +85,6 @@ ApplicationWindow {
                 toVal: 1.5
                 stepSizeVal: 0.2
             }
-
             GroupBox {
                 id: radioButtonBox
                 Layout.topMargin: 40 //distance between 2 items. Eg: Humans and AGV item
@@ -260,7 +268,4 @@ ApplicationWindow {
             //            }
         }
     }
-//    Flickable {
-//        ScrollBar.vertical: ScrollBar {}
-//    }
 }

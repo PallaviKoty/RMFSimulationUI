@@ -46,6 +46,9 @@ GroupBox {
         }
         Slider {
             id: slider
+            objectName: heading
+            signal sliderValue(string msg, var value)
+            onValueChanged: sliderValue(title.text, slider.value)
             width: 200
             from: controlBox.fromVal
             to: controlBox.toVal
